@@ -12,11 +12,11 @@
 			
 			<h1> Emissions de gaz à effet de serres pour la production d'électricité en France	 </h1>
 			<?php 
-			include("Interface/bd.php");
+			include("../Interface/bd.php");
 			$bdd = getBD();
+			$rep = $bdd->query("select * from consommation where dataCons LIKE '2014-01'");
 			
-			$rep = $bdd -> query ('select * from consommation where dataCons = "2014-01"');
-			while ($ligne = $rep -> fetch()){
+			while ($ligne = $rep -> fetch() ){
 				echo "date : " . $ligne['dateCons']	. " , code région : " . $ligne['codeINSEE']	. " , consommation : " . $ligne['Consommation'];
 			}
 			?>
