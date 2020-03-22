@@ -10,10 +10,10 @@ nav li{
 	margin = 0px;
 	display: inline-block;
 	width: 200px;
-	height: 30px;
+	height: 20px;
 	border-right :1px solid #CCCCCC;
 	text-align: center;
-	line-height: 30px;
+	line-height: 20px;
 }
 
 nav li a{
@@ -31,13 +31,39 @@ nav li div {
 	background-image: url(Images/LogoHeader1.jpg);
 }
 
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.navig{
+	padding-bottom: 0px;
+	width: 100%;
+}
+
+html {
+	background-color: #D3D3D3;
+}
 
 
-
-.banniereImage {
+.Image {
+	padding-top: 0px;
+	padding-bottom: 0px;
 	background-image: url(Images/energie1.jpg);
 	width:1200px;
 	height:677px;
 	margin-left: auto;
 	margin-right: auto; 
     }
+
+div{
+	border-style: solid;
+	border-color: #333333;
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.banniere{
+	background-color: black;
+}
