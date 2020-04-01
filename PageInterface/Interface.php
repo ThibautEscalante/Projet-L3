@@ -14,10 +14,10 @@
 			<?php 
 			include("../Interface/bd.php");
 			$bdd = getBD();
-			$rep = $bdd->query("select * from consommation where dataCons LIKE '2014-01'");
+			$rep = $bdd->query("select * from consommation where dateCons LIKE '2014-01'");
 			
 			while ($ligne = $rep -> fetch() ){
-				echo "date : " . $ligne['dateCons']	. " , code région : " . $ligne['codeINSEE']	. " , consommation : " . $ligne['Consommation'];
+				echo "date : " . $ligne['dateCons']	. ", code région : " . $ligne['codeINSEE']	. ", consommation : " . $ligne['Consommation'] . "</br>";
 			}
 			?>
 			
