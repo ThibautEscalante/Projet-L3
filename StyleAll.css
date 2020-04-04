@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@1,500&display=swap'); /* Importation de nos polices via font.google.com */
+
+html, body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Lato', sans-serif;*
+}
+
+.conteneur{
+width: 85%;
+margin: auto;
+}
+
+.contenu{
+	margin-left:15px;
+	padding:0px;
+	border-left-width: 5px;
+   border-left-style: solid;
+   border-left-color: red;
+}
+
+p{
+	margin-left: 135px;
+	margin-bottom: 35px;
+	margin-right: 135px;
+	margin-top: 35px;
+	font-size: 400;
+	letter-spacing: 1px;
+}
