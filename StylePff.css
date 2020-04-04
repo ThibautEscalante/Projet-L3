@@ -1,0 +1,56 @@
+
+.menu {
+	background-color: #90CAF9;
+	width: 100%;
+	height: 55px;
+	line-height: 55px; /* définit la hauteur de la boîte d'une ligne, utilité si elle est égale a height --> centre */
+}
+
+.logo{
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	text-decoration: uppercase;
+	font-family: 'Ubuntu', sans-serif;
+	letter-spacing: 1px;
+}
+
+.left{
+	float: left;
+}
+
+.liensMenu{
+	text-decoration: none;
+	color: white;
+	font-weight: 700;
+	font-style: italic;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom:0px;
+	margin-left: 33px; 
+	border-bottom-width: 2px;
+	border-bottom-color: transparent;
+	border-bottom-style: solid;
+}
+
+.liensMenu:hover{
+	padding-bottom: 2px;
+	border-bottom-color: white;
+}
+
+i{
+	margin-right: 2px;
+	font-size: 25px;
+}
+
+.banniere{
+	width: 100%;
+	height:677px;
+	margin:0px;
+	background-image: url(Images/energie1.jpg);
+	background-size: cover;
+	padding:0px;
+}
+
