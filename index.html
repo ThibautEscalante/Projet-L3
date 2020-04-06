@@ -18,6 +18,7 @@
     	<script>
 			    	
     		var ctx = document.getElementById('mycanvas').getContext('2d');
+    		
 			var chart = new Chart(ctx, {
     		
     		type: 'pie',
@@ -27,9 +28,10 @@
         		labels: ['Eoliens', 'Solaire', 'Biomasse', 'Nucleaire', 'Hydraulique', 'Charbon'],
         		datasets: [{
             		label: 'My First dataset',
-            		backgroundColor: ['rgb(255, 99, 132)', '#673AB7', '#CDDC39', '#FFC107', '#2196F3' , '#607D8B' ],
-            		borderColor: 'rgb(255, 99, 132)',
-            		data: [0, 10, 5, 2, 20, 30, 45]
+            		backgroundColor: ['#E91E63', '#673AB7', '#CDDC39', '#FFC107', '#2196F3' , '#607D8B' ],
+            		borderColor: 'black',
+            		hoverBackgroundColor: ['#F06292','#9575CD','#DCE775','#FFD54F', '#90CAF9' ,'#B0BEC5'],
+            		data: [30, 10, 5, 2, 20, 30, 45]
         		}]
     		},
 
@@ -54,4 +56,3 @@
     	</script>
     </body>
 </html>
-
