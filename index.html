@@ -1,15 +1,57 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<link rel="stylesheet" href="Styles/style.css" type="text/css" media="screen" />
-			<title>Home Design</title>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		</head>
-		
-		<body>
-		<a href="Interface.php" >Interface</a>	
-		<a href="AccF.html" >Accueil</a>	
-		<a href="PageContact/Contact.html" >Contact</a>
-		<script src='cmap/france-map.js'></script><script>francefree();</script>
-		</body>
-	</html>
+<html>  
+    <head>
+        <meta charset="utf-8" />
+        <title>Titre</title>
+        <link href="StyleAll.css" rel="stylesheet">
+        <link href="StylePff.css" rel="stylesheet">
+        
+        <script src="Chart.bundle.js"> </script>
+        
+    </head>
+
+    <body>
+    
+    	<h1>Mon Camembert Statistique</h1>
+    	<div style= "{width="256" height="250"}" > </div>
+    	<canvas id="mycanvas"> </canvas>
+    	<script>
+			    	
+    		var ctx = document.getElementById('mycanvas').getContext('2d');
+			var chart = new Chart(ctx, {
+    		
+    		type: 'pie',
+
+    		
+   		data: {
+        		labels: ['Eoliens', 'Solaire', 'Biomasse', 'Nucleaire', 'Hydraulique', 'Charbon'],
+        		datasets: [{
+            		label: 'My First dataset',
+            		backgroundColor: ['rgb(255, 99, 132)', '#673AB7', '#CDDC39', '#FFC107', '#2196F3' , '#607D8B' ],
+            		borderColor: 'rgb(255, 99, 132)',
+            		data: [0, 10, 5, 2, 20, 30, 45]
+        		}]
+    		},
+
+    		// Configuration options go here
+    		options: {
+				title : {
+				text:"Production",
+				display : true, 
+				fontSize :35,
+				fontFamily :"'Lato', sans-serif",
+				
+
+				},
+				
+    		
+    		}
+				    		
+    		
+    		
+			});
+    	
+    	</script>
+    </body>
+</html>
+
