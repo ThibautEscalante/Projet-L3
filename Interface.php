@@ -38,12 +38,12 @@
 			</div>
 			
 			<h1> Emissions de gaz à effet de serres pour la production d'électricité en France	 </h1>
-			
+			<input type="month" name="date" min="2014-01" max="2019-12">
 			<?php 
 			include("Interface/bd.php");
 			$bdd = getBD();
 			
-			
+			echo $_GET['date'];
 			
 			
 			
