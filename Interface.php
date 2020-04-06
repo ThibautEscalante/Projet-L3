@@ -3,9 +3,36 @@
 <head>
 <title>Interface</title>
 <meta content="width=device-width" charset="UTF-8" />
-<link rel="stylesheet" href= "" type="text/css" media="screen" />
+<link rel="stylesheet" href= "StylePff.css" type="text/css" media="screen" />
+<link href="StyleAll.css" rel="stylesheet">
 
 	<body>
+		<header>
+		
+			<nav class="menu"> 
+			
+				<div class="conteneur">
+				
+    				<div class="left">	
+    					
+						<h1 class="logo"> <i class="fas fa-bolt"></i> WattsonEnergie </h1>
+						
+					</div>	
+					
+					<div class="left">
+					
+						<a href="AccF.html" class="liensMenu" > Accueil</a>
+						<a href="AProposDeNous.html" class="liensMenu" > A Propos De Nous</a>
+						<a href="Contact.html" class="liensMenu" > Contact</a>
+						<a href="SeConnecter.php" class="liensMenu" > Se Connecter</a>
+						
+    				</div>
+    				
+    			</div>	
+    			
+			</nav>
+			
+		</header>
 			<div>
 							
 			</div>
