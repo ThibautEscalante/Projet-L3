@@ -38,22 +38,28 @@
 			</div>
 			
 			<h1> Emissions de gaz à effet de serres pour la production d'électricité en France	 </h1>
-			
+			<input type="month" name="date" min="2014-01" max="2019-12">
 			<?php 
 			include("Interface/bd.php");
 			$bdd = getBD();
-			$rep = $bdd->query("select * from consommation where dateCons LIKE '2014-01'");
 			
-			while ($ligne = $rep -> fetch() ){
-				echo "date : " . $ligne['dateCons']	. ", code région : " . $ligne['codeINSEE']	. ", consommation : " . $ligne['Consommation'] . "</br>";
-			}
-			$rep -> closeCursor();
+			echo $_GET['date'];
+			
+			
 			
 			if ( isset($_GET['region']) == False ){
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
 			} else {
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
-				echo $_GET['region'];
+				$region = "'".$_GET['region']."'";
+				$date = "'2014-01'";
+				$rep = $bdd->query("select * from production where dateProd LIKE $date AND codeINSEE = $region ");
+				while ($ligne = $rep -> fetch() ){
+
+				echo "date : " . $ligne['dateProd']	. ", code région : " . $ligne['codeINSEE']	. ", production : " . $ligne['QuantiteProd'] . "</br>";
+
+			}
+				$rep -> closeCursor();
 			}
 			
 			?>
