@@ -18,18 +18,18 @@
     	
     	<?php
     	
-    	include("bd.php");
+    	include("Interface/bd.php");
 		$db=getBD();
 		
-		$eProd=$db->query('SELECT*FROM production AND production.codeINSEE=);
-		$eNuk=$db->query('SELECT*FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE=);
-		$eCha=$db->query('SELECT*FROM production WHERE production.typeProd='charbon' AND production.codeINSEE=);
-		$eFio=$db->query('SELECT*FROM production WHERE production.typeProd='fioul' AND production.codeINSEE=);
-		$eGaz=$db->query('SELECT*FROM production WHERE production.typeProd='gaz' AND production.codeINSEE=);
-		$eHyd=$db->query('SELECT*FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE=);
-		$eEol=$db->query('SELECT*FROM production WHERE production.typeProd='eolien' AND production.codeINSEE=);
-		$eSol=$db->query('SELECT*FROM production WHERE production.typeProd='solaire' AND production.codeINSEE=);
-		$eBio=$db->query('SELECT*FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE=);
+		$eProd=$db->query('SELECT QuantiteProd FROM production AND production.codeINSEE=44');
+		$eNuk=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE=44");
+		$eCha=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='charbon' AND production.codeINSEE=44");
+		$eFio=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='fioul' AND production.codeINSEE=44");
+		$eGaz=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='gaz' AND production.codeINSEE=44");
+		$eHyd=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE=44");
+		$eEol=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='eolien' AND production.codeINSEE=44");
+		$eSol=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='solaire' AND production.codeINSEE=44");
+		$eBio=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE=44");
 		
 		
 		$neweProd=json_encode($eProd);
