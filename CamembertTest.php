@@ -154,7 +154,7 @@
 
             		hoverBackgroundColor: ['#F06292','#9575CD','#DCE775','#FFD54F', '#90CAF9' ,'#B0BEC5','#FFECB3','#FFCCBC'],
 
-            		data: [<?php echo $eNuk; ?>,<?php echo $eCha; ?>,<?php echo $eFio; ?>,<?php echo $eGaz; ?>,<?php echo $eHyd; ?>,<?php echo $eEol; ?>,<?php echo $eSol; ?>,<?php echo $eBio; ?>]
+            		data: [<?php echo $neweNuk; ?>,<?php echo $neweCha; ?>,<?php echo $neweFio; ?>,<?php echo $neweGaz; ?>,<?php echo $neweHyd; ?>,<?php echo $neweEol; ?>,<?php echo $neweSol; ?>,<?php echo $neweBio; ?>]
 
         		}]
 
