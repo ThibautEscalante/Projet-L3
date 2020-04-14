@@ -148,11 +148,11 @@
 
             		label: 'My First dataset',
 
-            		backgroundColor: ['#E91E63', '#673AB7', '#CDDC39', '#FFC107', '#2196F3' , '#607D8B' ],
+            		backgroundColor: ['#E91E63', '#673AB7', '#CDDC39', '#FFC107', '#2196F3' , '#607D8B','#FFE102','#FFAB91'],
 
             		borderColor: 'black',
 
-            		hoverBackgroundColor: ['#F06292','#9575CD','#DCE775','#FFD54F', '#90CAF9' ,'#B0BEC5'],
+            		hoverBackgroundColor: ['#F06292','#9575CD','#DCE775','#FFD54F', '#90CAF9' ,'#B0BEC5','#FFECB3','#FFCCBC'],
 
             		data: [<?php echo $eNuk; ?>,<?php echo $eCha; ?>,<?php echo $eFio; ?>,<?php echo $eGaz; ?>,<?php echo $eHyd; ?>,<?php echo $eEol; ?>,<?php echo $eSol; ?>,<?php echo $eBio; ?>]
 
