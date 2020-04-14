@@ -72,7 +72,7 @@
 			
 			$annee = $_GET['annee'];
 			
-			$eProd=$db->query("SELECT QuantiteProd FROM production WHERE production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’");
+			$eProd=$db->query("SELECT QuantiteProd FROM production WHERE production.codeINSEE=44" AND dateProd LIKE‘$annee-$mois’");
 
 			$eNuk=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE='44' AND dateProd LIKE‘$annee-$mois’");
 
