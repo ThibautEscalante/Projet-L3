@@ -48,23 +48,23 @@
 		
 			$annee = $_GET['annee'];
 
-			$eProd=$db->query("SELECT SUM(QuantiteProd) FROM production AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eProd=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.codeINSEE="44" AND dateProd LIKE‘$annee%’");
 
-			$eNuk=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eNuk=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eCha=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='charbon' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eCha=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='charbon' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eFio=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='fioul' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eFio=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='fioul' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eGaz=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='gaz' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eGaz=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='gaz' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eHyd=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eHyd=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eEol=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='eolien' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eEol=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='eolien' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eSol=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='solaire' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’);
+			$eSol=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='solaire' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’");
 
-			$eBio=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee%’); }
+			$eBio=$db->query("SELECT SUM(QuantiteProd) FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE="44" AND production.dateProd LIKE‘$annee%’"); }
 
 		else  {
 		
@@ -72,23 +72,23 @@
 			
 			$annee = $_GET['annee'];
 			
-			$eProd=$db->query("SELECT QuantiteProd FROM production AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eProd=$db->query("SELECT QuantiteProd FROM production AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’");
 
-			$eNuk=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eNuk=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eCha=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='charbon' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eCha=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='charbon' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eFio=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='fioul' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eFio=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='fioul' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eGaz=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='gaz' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eGaz=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='gaz' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eHyd=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eHyd=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eEol=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='eolien' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eEol=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='eolien' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eSol=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='solaire' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eSol=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='solaire' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 
-			$eBio=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE=44" AND dateProd=LIKE‘$annee-$mois’);
+			$eBio=$db->query("SELECT QuantiteProd FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE="44" AND dateProd LIKE‘$annee-$mois’");
 			
 		}
 
