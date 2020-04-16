@@ -38,28 +38,24 @@
 			</div>
 			
 			<h1> Emissions de gaz à effet de serres pour la production d'électricité en France	 </h1>
-			<input type="month" name="date" min="2014-01" max="2019-12">
+			
 			<?php 
 			include("Interface/bd.php");
 			$bdd = getBD();
 			
-			echo $_GET['date'];
-			
-			
-			
 			if ( isset($_GET['region']) == False ){
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
 			} else {
+				$region = $_GET['region'];
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
-				$region = "'".$_GET['region']."'";
-				$date = "'2014-01'";
-				$rep = $bdd->query("select * from production where dateProd LIKE $date AND codeINSEE = $region ");
-				while ($ligne = $rep -> fetch() ){
-
-				echo "date : " . $ligne['dateProd']	. ", code région : " . $ligne['codeINSEE']	. ", production : " . $ligne['QuantiteProd'] . "</br>";
-
-			}
-				$rep -> closeCursor();
+				echo '<form action="Interface.php"></br>
+						Sélectionnez un laps de temps : <input type="month" name="date1" id="date" min="2014-01" max="2019-12"> 
+						à <input type="month" name="date2" id="date" min="2014-01" max="2019-12">
+						<input type="hidden" name=region value="'.$region.'" /> 
+						<input type="submit" value="envoyer" ></form>';
+							
+				
+				
 			}
 			
 			?>
