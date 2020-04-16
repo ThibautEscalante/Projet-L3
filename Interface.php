@@ -177,7 +177,7 @@
 
 	<script>
 		Chart.defaults.global.title.display = true;
-		Chart.defaults.global.title.text = "La Production en Region";
+		Chart.defaults.global.title.text = "La Production en region "+<?php echo $region; ?>;
 		Chart.defaults.global.title.fontSize = 18;
 		
 	</script>
@@ -233,8 +233,242 @@
 	});
 	</script>
 			
+	<?php
+	
+	
+	$nuc2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='nucleaire' AND production.codeINSEE='".$region."' AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($nuc2)
+	{
+		$Labels2 = array();
+	
+		while ($prodnuc2 = mysqli_fetch_array($nuc2))
+		{
+			$dateProd2 = $prodnuc2['dateProd'];
+			$QuantiteProdNuc2 = $prodnuc2['QuantiteProd'];
 			
-			<footer>Mails :</footer>
+			$Labels2[] = $dateProd2;
+			$DataNuc2[] = $QuantiteProdNuc2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Nuc2 = json_encode($DataNuc2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+	$eol2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='eolien' AND production.codeINSEE='".$region."' AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($eol2)
+	{
+		$Labels2 = array();
+	
+		while ($prodeol2 = mysqli_fetch_array($eol2))
+		{
+			$dateProd2 = $prodeol2['dateProd'];
+			$QuantiteProdEol2 = $prodeol2['QuantiteProd'];
+			
+			$Labels2[] = $dateProd2;
+			$DataEol2[] = $QuantiteProdEol2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Eol2 = json_encode($DataEol2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+	$cha2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='charbon' AND production.codeINSEE=".$region." AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($cha2)
+	{
+		$Labels2 = array();
+	
+		while ($prodcha2 = mysqli_fetch_array($cha2))
+		{
+			$dateProd2 = $prodcha2['dateProd'];
+			$QuantiteProdCha2 = $prodcha['QuantiteProd'];
+			
+			$Labels2[] = $dateProd2;
+			$DataCha2[] = $QuantiteProdCha2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Cha2 = json_encode($DataCha2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+	$gaz2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='gaz' AND production.codeINSEE=".$region." AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($gaz2)
+	{
+		$Labels2 = array();
+	
+		while ($prodgaz2 = mysqli_fetch_array($gaz2))
+		{
+			$dateProd2 = $prodgaz2['dateProd'];
+			$QuantiteProdGaz2 = $prodgaz2['QuantiteProd'];
+			
+			$Labels2[] = $dateProd2;
+			$DataGaz2[] = $QuantiteProdGaz2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Gaz2 = json_encode($DataGaz2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+	$sol2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='solaire' AND production.codeINSEE=".$region." AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($sol2)
+	{
+		$Labels2 = array();
+	
+		while ($prodsol2 = mysqli_fetch_array($sol2))
+		{
+			$dateProd2 = $prodsol2['dateProd'];
+			$QuantiteProdSol2 = $prodsol2['QuantiteProd'];
+			
+			$Labels2[] = $dateProd2;
+			$DataSol2[] = $QuantiteProdSol2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Sol2 = json_encode($DataSol2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+	$hyd2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='hydraulique' AND production.codeINSEE=".$region." AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($hyd2)
+	{
+		$Labels2 = array();
+	
+		while ($prodhyd2 = mysqli_fetch_array($hyd2))
+		{
+			$dateProd2 = $prodhyd2['dateProd'];
+			$QuantiteProdHyd2 = $prodhyd2['QuantiteProd'];
+			
+			$Labels2[] = $dateProd2;
+			$DataHyd2[] = $QuantiteProdHyd2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Hyd2 = json_encode($DataHyd2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+	$bio2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='bio-energies' AND production.codeINSEE=".$region." AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
+	if($bio2)
+	{
+		$Labels2 = array();
+	
+		while ($prodbio2 = mysqli_fetch_array($bio2))
+		{
+			$dateProd2 = $prodbio2['dateProd'];
+			$QuantiteProdBio2 = $prodbio2['QuantiteProd'];
+			
+			$Labels2[] = $dateProd2;
+			$DataBio2[] = $QuantiteProdBio2;
+		
+		 
+		$Labels_Json2 = json_encode($Labels2);
+		$Data_Json_Bio2 = json_encode($DataBio2, JSON_NUMERIC_CHECK);
+		}
+        
+	}
+	
+?>
+	
+	<div style="width: 75%">
+		<canvas id="myChart2"></canvas>
+	</div>
+
+	<script>
+		Chart.defaults.global.title.display = true;
+		Chart.defaults.global.title.text = "Evolution des émissions en CO2 en "+<?php echo $region; ?>;
+		Chart.defaults.global.title.fontSize = 18;
+		
+	</script>
+
+
+	<script>
+		var ctx = document.getElementById('myChart2').getContext('2d');
+		
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: <?php echo $Labels_Json2; ?>,
+				datasets: [{
+					label: 'Nucléaire',
+					fill: false,
+					backgroundColor: 'rgb(0, 0, 0)',
+					borderColor: 'rgb(0, 0, 0)',
+					data: <?php echo $Data_Json_Nuc2; ?>
+				}, {
+					label: 'Eolien',
+					fill: false,
+					backgroundColor: 'rgb(255, 255, 0)',
+					borderColor: 'rgb(255, 255, 0)',
+					data: <?php echo $Data_Json_Eol2; ?>
+				}, {
+					label: 'Charbon',
+					fill: false,
+					backgroundColor: 'rgb(80, 20, 110)',
+					borderColor: 'rgb(80, 20, 110)',
+					data: <?php echo $Data_Json_Cha2; ?>
+				}, {
+					label: 'Gaz',
+					fill: false,
+					backgroundColor: 'rgb(150, 150, 150)',
+					borderColor: 'rgb(150, 150, 150)',
+					data: <?php echo $Data_Json_Gaz2; ?>
+				}, {
+					label: 'Solaire',
+					fill: false,
+					backgroundColor: 'rgb(255, 0, 0)',
+					borderColor: 'rgb(255, 0, 0)',
+					data: <?php echo $Data_Json_Sol2; ?>
+				}, {
+					label: 'Hydraulique',
+					fill: false,
+					backgroundColor: 'rgb(60, 100, 255)',
+					borderColor: 'rgb(60, 100, 255)',
+					data: <?php echo $Data_Json_Hyd2; ?>
+				}, {
+					label: 'Bio-Energies',
+					fill: false,
+					backgroundColor: 'rgb(0, 255, 0)',
+					borderColor: 'rgb(0, 255, 0)',
+					data: <?php echo $Data_Json_Bio2; ?>
+				}]	
+			},
+		// Configuration options go here
+		options: {
+			responsive: true,
+			scales: {
+			  xAxes: [
+				{
+				  scaleLabel: {
+					display: true,
+					labelString: "Date"
+				  },
+				}
+			  ],
+			  yAxes: [
+				{
+				  scaleLabel: {
+					display: true,
+					labelString: "Valeur"
+				  }
+				}
+			  ]
+			},
+		}
+	});
+	</script>	
+	
 	</body>
 </html>
 <?php
