@@ -244,7 +244,7 @@
 		while ($prodnuc2 = mysqli_fetch_array($nuc2))
 		{
 			$dateProd2 = $prodnuc2['dateProd'];
-			$QuantiteProdNuc2 = $prodnuc2['QuantiteProd'];
+			$QuantiteProdNuc2 = $prodnuc2['QuantiteProd']*6;
 			
 			$Labels2[] = $dateProd2;
 			$DataNuc2[] = $QuantiteProdNuc2;
@@ -264,7 +264,7 @@
 		while ($prodeol2 = mysqli_fetch_array($eol2))
 		{
 			$dateProd2 = $prodeol2['dateProd'];
-			$QuantiteProdEol2 = $prodeol2['QuantiteProd'];
+			$QuantiteProdEol2 = $prodeol2['QuantiteProd']*15;
 			
 			$Labels2[] = $dateProd2;
 			$DataEol2[] = $QuantiteProdEol2;
@@ -284,7 +284,7 @@
 		while ($prodcha2 = mysqli_fetch_array($cha2))
 		{
 			$dateProd2 = $prodcha2['dateProd'];
-			$QuantiteProdCha2 = $prodcha['QuantiteProd'];
+			$QuantiteProdCha2 = $prodcha['QuantiteProd']*1060;
 			
 			$Labels2[] = $dateProd2;
 			$DataCha2[] = $QuantiteProdCha2;
@@ -304,7 +304,7 @@
 		while ($prodgaz2 = mysqli_fetch_array($gaz2))
 		{
 			$dateProd2 = $prodgaz2['dateProd'];
-			$QuantiteProdGaz2 = $prodgaz2['QuantiteProd'];
+			$QuantiteProdGaz2 = $prodgaz2['QuantiteProd']*418;
 			
 			$Labels2[] = $dateProd2;
 			$DataGaz2[] = $QuantiteProdGaz2;
@@ -324,7 +324,7 @@
 		while ($prodsol2 = mysqli_fetch_array($sol2))
 		{
 			$dateProd2 = $prodsol2['dateProd'];
-			$QuantiteProdSol2 = $prodsol2['QuantiteProd'];
+			$QuantiteProdSol2 = $prodsol2['QuantiteProd']*55;
 			
 			$Labels2[] = $dateProd2;
 			$DataSol2[] = $QuantiteProdSol2;
@@ -344,7 +344,7 @@
 		while ($prodhyd2 = mysqli_fetch_array($hyd2))
 		{
 			$dateProd2 = $prodhyd2['dateProd'];
-			$QuantiteProdHyd2 = $prodhyd2['QuantiteProd'];
+			$QuantiteProdHyd2 = $prodhyd2['QuantiteProd']*6;
 			
 			$Labels2[] = $dateProd2;
 			$DataHyd2[] = $QuantiteProdHyd2;
@@ -364,7 +364,7 @@
 		while ($prodbio2 = mysqli_fetch_array($bio2))
 		{
 			$dateProd2 = $prodbio2['dateProd'];
-			$QuantiteProdBio2 = $prodbio2['QuantiteProd'];
+			$QuantiteProdBio2 = $prodbio2['QuantiteProd']*0;
 			
 			$Labels2[] = $dateProd2;
 			$DataBio2[] = $QuantiteProdBio2;
