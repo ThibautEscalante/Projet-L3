@@ -49,6 +49,8 @@
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
 			} else {
 				$region = $_GET['region'];
+				$date1 = $_GET['date1'];
+				$date2 = $_GET['date2'];
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
 				echo '<form action="Interface.php"></br>
 						Sélectionnez un laps de temps : <input type="month" name="date1" id="date" min="2014-01" max="2019-12"> 
@@ -62,13 +64,13 @@
 	}
 	
 	
-	$nuc = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$nuc = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($nuc)
 	{
 	
 		while ($prodnuc = mysqli_fetch_array($nuc))
 		{
-			$QuantiteProdNuc = $prodnuc['QuantiteProd'];
+			$QuantiteProdNuc = $prodnuc[0];
 			$DataNuc[] = $QuantiteProdNuc;
 		
 		$Data_Json_Nuc = json_encode($DataNuc, JSON_NUMERIC_CHECK);
@@ -77,13 +79,13 @@
 	}
 	
 	
-	$eol = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='eolien' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$eol = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='eolien' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($eol)
 	{
 
 		while ($prodeol = mysqli_fetch_array($eol))
 		{
-			$QuantiteProdEol = $prodeol['QuantiteProd'];
+			$QuantiteProdEol = $prodeol[0];
 			$DataEol[] = $QuantiteProdEol;
 		
 		$Data_Json_Eol = json_encode($DataEol, JSON_NUMERIC_CHECK);
@@ -91,13 +93,13 @@
         
 	}
 	
-	$cha = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='charbon' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$cha = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='charbon' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($cha)
 	{
 	
 		while ($prodcha = mysqli_fetch_array($cha))
 		{
-			$QuantiteProdCha = $prodcha['QuantiteProd'];
+			$QuantiteProdCha = $prodcha[0];
 			
 			$DataCha[] = $QuantiteProdCha;
 		
@@ -107,13 +109,13 @@
         
 	}
 	
-	$gaz = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='gaz' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$gaz = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='gaz' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($gaz)
 	{
 	
 		while ($prodgaz = mysqli_fetch_array($gaz))
 		{
-			$QuantiteProdGaz = $prodgaz['QuantiteProd'];
+			$QuantiteProdGaz = $prodgaz[0];
 			
 			$DataGaz[] = $QuantiteProdGaz;
 		
@@ -123,14 +125,14 @@
         
 	}
 	
-	$sol = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='solaire' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$sol = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='solaire' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($sol)
 	{
 	
 		while ($prodsol = mysqli_fetch_array($sol))
 		{
 
-			$QuantiteProdSol = $prodsol['QuantiteProd'];
+			$QuantiteProdSol = $prodsol[0];
 			$DataSol[] = $QuantiteProdSol;
 		
 		$Data_Json_Sol = json_encode($DataSol, JSON_NUMERIC_CHECK);
@@ -138,13 +140,13 @@
         
 	}
 	
-	$hyd = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$hyd = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='hydraulique' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($hyd)
 	{
-	
+
 		while ($prodhyd = mysqli_fetch_array($hyd))
 		{
-			$QuantiteProdHyd = $prodhyd['QuantiteProd'];
+			$QuantiteProdHyd = $prodhyd[0];
 			$DataHyd[] = $QuantiteProdHyd;
 		
 		$Data_Json_Hyd = json_encode($DataHyd, JSON_NUMERIC_CHECK);
@@ -152,14 +154,14 @@
         
 	}
 	
-	$bio = mysqli_query($bdd, "SELECT production.QuantiteProd FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE='".$_GET['region']."' AND dateProd BETWEEN '".$_GET['date1']."' AND '".$_GET['date2']."'");
+	$bio = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='bio-energies' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($bio)
 	{
 	
 		while ($prodbio = mysqli_fetch_array($bio))
 		{
 
-			$QuantiteProdBio = $prodbio['QuantiteProd'];
+			$QuantiteProdBio = $prodbio[0];
 			$DataBio[] = $QuantiteProdBio;
 		
 		$Data_Json_Bio = json_encode($DataBio, JSON_NUMERIC_CHECK);
