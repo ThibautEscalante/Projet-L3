@@ -54,3 +54,17 @@ i{
 	padding:0px;
 }
 
+.coordonnees{
+	float: left;
+	margin-left: 50px;
+	margin-bottom: 35px;
+	margin-right: 135px;
+	margin-top: 35px;
+	font-size: 400;
+	letter-spacing: 1px;
+}
+
+.espace{
+	margin-top: 80px;
+	margin-bottom: 108px;
+}

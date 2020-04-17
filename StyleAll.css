@@ -3,12 +3,12 @@
 html, body{
 	margin: 0px;
 	padding: 0px;
-	font-family: 'Lato', sans-serif;*
+	font-family: 'Lato', sans-serif;
 }
 
 .conteneur{
-width: 85%;
-margin: auto;
+	width: 85%;
+	margin: auto;
 }
 
 .contenu{
@@ -19,7 +19,7 @@ margin: auto;
    border-left-color: red;
 }
 
-p{
+.pAcc{
 	margin-left: 135px;
 	margin-bottom: 35px;
 	margin-right: 135px;
@@ -27,3 +27,12 @@ p{
 	font-size: 400;
 	letter-spacing: 1px;
 }
+
+.minititre{
+	text-decoration:underline;
+	color: #616161;
+	text-decoration: uppercase;
+	font-family: 'Ubuntu', sans-serif;
+	letter-spacing: 1px;
+}
+
