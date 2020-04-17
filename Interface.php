@@ -49,14 +49,16 @@
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
 			} else {
 				$region = $_GET['region'];
-				$date1 = $_GET['date1'];
-				$date2 = $_GET['date2'];
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
 				echo '<form action="Interface.php"></br>
 						Sélectionnez un laps de temps : <input type="month" name="date1" id="date" min="2014-01" max="2019-12"> 
 						à <input type="month" name="date2" id="date" min="2014-01" max="2019-12">
 						<input type="hidden" name=region value="'.$region.'" /> 
 						<input type="submit" value="envoyer" ></form>';
+						
+				if ( isset($_GET['date1']) == True){
+					$date1 = $_GET['date1'];
+					$date2 = $_GET['date2'];
 			
 	$bdd=mysqli_connect('127.0.0.1', 'root', '', 'energie', '3308');
 	if(!$bdd) {
@@ -168,22 +170,21 @@
 		}
         
 	}
-	}
-?>
 	
-	<div style="width: 75%">
+	
+	echo '<div style="width: 75%">
 		<canvas id="myChart"></canvas>
-	</div>
+	</div>';
 
-	<script>
+	echo '<script>
 		Chart.defaults.global.title.display = true;
 		Chart.defaults.global.title.text = "La Production en region "+<?php echo $region; ?>;
 		Chart.defaults.global.title.fontSize = 18;
 		
-	</script>
+	</script>';
 
 
-	<script>
+	echo "<script>
 		var ctx = document.getElementById('myChart').getContext('2d');
 		
 		var chart = new Chart(ctx, {
@@ -194,13 +195,13 @@
 			data: {
 				datasets: [{
 					data : [
-						<?php echo $Data_Json_Nuc; ?>,
-						<?php echo $Data_Json_Eol; ?>,
-						<?php echo $Data_Json_Cha; ?>,
-						<?php echo $Data_Json_Gaz; ?>,
-						<?php echo $Data_Json_Sol; ?>,
-						<?php echo $Data_Json_Hyd; ?>,
-						<?php echo $Data_Json_Bio; ?>,
+						".  $Data_Json_Nuc .",
+						".  $Data_Json_Eol .",
+						".  $Data_Json_Cha .",
+						".  $Data_Json_Gaz .",
+						".  $Data_Json_Sol .",
+						".  $Data_Json_Hyd .",
+						".  $Data_Json_Bio .",
 					],
 					backgroundColor : [
 						'rgb(0, 0, 0)',
@@ -231,9 +232,10 @@
 			},
 		}
 	});
-	</script>
+	</script>";
+
 			
-	<?php
+
 	
 	
 	$nuc2 = mysqli_query($bdd, "SELECT * FROM production WHERE typeProd='nucleaire' AND production.codeINSEE='".$region."' AND production.dateProd BETWEEN '".$date1."' AND '".$date2."'");
@@ -364,7 +366,7 @@
 		while ($prodbio2 = mysqli_fetch_array($bio2))
 		{
 			$dateProd2 = $prodbio2['dateProd'];
-			$QuantiteProdBio2 = $prodbio2['QuantiteProd']*0;
+			$QuantiteProdBio2 = $prodbio2['QuantiteProd']*22;
 			
 			$Labels2[] = $dateProd2;
 			$DataBio2[] = $QuantiteProdBio2;
@@ -376,21 +378,21 @@
         
 	}
 	
-?>
-	
-	<div style="width: 75%">
-		<canvas id="myChart2"></canvas>
-	</div>
 
-	<script>
+	
+	echo '<div style="width: 75%">
+		<canvas id="myChart2"></canvas>
+	</div>';
+
+	echo '<script>
 		Chart.defaults.global.title.display = true;
 		Chart.defaults.global.title.text = "Evolution des émissions en CO2 en "+<?php echo $region; ?>;
 		Chart.defaults.global.title.fontSize = 18;
 		
-	</script>
+	</script>';
 
 
-	<script>
+	echo "<script>
 		var ctx = document.getElementById('myChart2').getContext('2d');
 		
 		var chart = new Chart(ctx, {
@@ -399,49 +401,49 @@
 
 			// The data for our dataset
 			data: {
-				labels: <?php echo $Labels_Json2; ?>,
+				labels: ". $Labels_Json2.",
 				datasets: [{
 					label: 'Nucléaire',
 					fill: false,
 					backgroundColor: 'rgb(0, 0, 0)',
 					borderColor: 'rgb(0, 0, 0)',
-					data: <?php echo $Data_Json_Nuc2; ?>
+					data: ". $Data_Json_Nuc2."
 				}, {
 					label: 'Eolien',
 					fill: false,
 					backgroundColor: 'rgb(255, 255, 0)',
 					borderColor: 'rgb(255, 255, 0)',
-					data: <?php echo $Data_Json_Eol2; ?>
+					data: ". $Data_Json_Eol2."
 				}, {
 					label: 'Charbon',
 					fill: false,
 					backgroundColor: 'rgb(80, 20, 110)',
 					borderColor: 'rgb(80, 20, 110)',
-					data: <?php echo $Data_Json_Cha2; ?>
+					data: ". $Data_Json_Cha2."
 				}, {
 					label: 'Gaz',
 					fill: false,
 					backgroundColor: 'rgb(150, 150, 150)',
 					borderColor: 'rgb(150, 150, 150)',
-					data: <?php echo $Data_Json_Gaz2; ?>
+					data: ". $Data_Json_Gaz2."
 				}, {
 					label: 'Solaire',
 					fill: false,
 					backgroundColor: 'rgb(255, 0, 0)',
 					borderColor: 'rgb(255, 0, 0)',
-					data: <?php echo $Data_Json_Sol2; ?>
+					data: ". $Data_Json_Sol2."
 				}, {
 					label: 'Hydraulique',
 					fill: false,
 					backgroundColor: 'rgb(60, 100, 255)',
 					borderColor: 'rgb(60, 100, 255)',
-					data: <?php echo $Data_Json_Hyd2; ?>
+					data: ". $Data_Json_Hyd2."
 				}, {
 					label: 'Bio-Energies',
 					fill: false,
 					backgroundColor: 'rgb(0, 255, 0)',
 					borderColor: 'rgb(0, 255, 0)',
-					data: <?php echo $Data_Json_Bio2; ?>
+					data: ". $Data_Json_Bio2."
 				}]	
 			},
 		// Configuration options go here
@@ -452,7 +454,7 @@
 				{
 				  scaleLabel: {
 					display: true,
-					labelString: "Date"
+					labelString: 'Date'
 				  },
 				}
 			  ],
@@ -460,17 +462,18 @@
 				{
 				  scaleLabel: {
 					display: true,
-					labelString: "Valeur"
+					labelString: 'Valeur'
 				  }
 				}
 			  ]
 			},
 		}
 	});
-	</script>	
-	
+	</script>";
+
+	mysqli_close($bdd);
+		}
+		}
+?>
 	</body>
 </html>
-<?php
-	mysqli_close($bdd);
-?>
