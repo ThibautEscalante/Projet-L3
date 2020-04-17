@@ -36,3 +36,20 @@ html, body{
 	letter-spacing: 1px;
 }
 
+.maCarte{
+	width: 50%;
+	float: left;
+}
+
+.graphes{
+	width: 50%;
+	float: left;
+}
+
+.myChart{
+	float: right;
+}
+
+.myChart2{
+	float: right;
+}
