@@ -1,8 +1,8 @@
 #canvasMap{
      
       position: absolute;
-        width : 320px;
-        height : 320px;
+        width : 500px;
+        height : 500px;
 		z-index: 50;
 }
 
@@ -11,10 +11,10 @@
 	color: #616161;
 	font-weight: bold;
 	z-index: 100;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 	background-color: #FFFFFF;
 	position: absolute;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	padding: 4px;
+	padding: 20px;
 	  
 }

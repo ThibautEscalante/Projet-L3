@@ -94,8 +94,8 @@ $(function(){
         var map = $("#map");
         var areas = $("#areas");
         var canvas = $("#canvas")[0]; 
-		canvas.width = 500;
-        canvas.height = 500;
+		canvas.width = 300;
+        canvas.height = 300;
         var c = canvas.getContext("2d");
         $.fn.render = function(){ 
           this.data.apply(this, arguments);
