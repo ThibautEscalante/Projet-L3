@@ -49,10 +49,10 @@
 			}
 			
 			if ( isset($_GET['region']) == False ){
-				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
+				echo "<div id='maCarte'><script src='cmap/france-map.js'></script><script>francefree();</script></div>";
 			} else {
 				$region = $_GET['region'];
-				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
+				echo "<div id='maCarte'><script src='cmap/france-map.js'></script><script>francefree();</script></div>";
 				echo '<form action="Interface.php"></br>
 						Sélectionnez un laps de temps : <input type="month" name="date1" id="date" min="2014-01" max="2019-12"> 
 						à <input type="month" name="date2" id="date" min="2014-01" max="2019-12">
@@ -174,7 +174,7 @@
 	}
 	
 	
-	echo '<div style="width: 50%; float:right;">
+	echo '<div id="graphes"><div style="width: 50%; float:right;">
 		<canvas id="myChart"></canvas>
 	</div>';
 
@@ -477,7 +477,7 @@
 			},
 		}
 	});
-	</script>";
+	</script></div>";
 
 	mysqli_close($bdd);
 		}
