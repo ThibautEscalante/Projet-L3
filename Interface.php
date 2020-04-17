@@ -42,8 +42,11 @@
 			<h1> Emissions de gaz à effet de serres pour la production d'électricité en France	 </h1>
 			
 			<?php 
-			include("Interface/bd.php");
-			$bdd = getBD();
+			
+			$bdd=mysqli_connect('127.0.0.1', 'root', '', 'energie', '3308');
+			if(!$bdd) {
+				die('erreur de connexion : ' . mysqli_connect_error());
+			}
 			
 			if ( isset($_GET['region']) == False ){
 				echo "<script src='cmap/france-map.js'></script><script>francefree();</script>";
@@ -60,11 +63,10 @@
 					$date1 = $_GET['date1'];
 					$date2 = $_GET['date2'];
 			
-	$bdd=mysqli_connect('127.0.0.1', 'root', '', 'energie', '3308');
-	if(!$bdd) {
-		die('erreur de connexion : ' . mysqli_connect_error());
-	}
 	
+	$reqRegion = mysqli_query($bdd, "SELECT region.Region FROM region WHERE region.CodeInsee='".$region."'");
+	$arRegion = mysqli_fetch_array($reqRegion);
+	$nomRegion = $arRegion[0];
 	
 	$nuc = mysqli_query($bdd, "SELECT SUM(production.QuantiteProd) FROM production WHERE production.typeProd='nucleaire' AND production.codeINSEE='".$region."' AND dateProd BETWEEN '".$date1."' AND '".$date2."'");
 	if($nuc)
@@ -172,13 +174,13 @@
 	}
 	
 	
-	echo '<div style="width: 75%">
+	echo '<div style="width: 50%; float:right;">
 		<canvas id="myChart"></canvas>
 	</div>';
 
 	echo '<script>
 		Chart.defaults.global.title.display = true;
-		Chart.defaults.global.title.text = "La Production en region "+<?php echo $region; ?>;
+		Chart.defaults.global.title.text = "La Production en region '. $nomRegion.'";
 		Chart.defaults.global.title.fontSize = 18;
 		
 	</script>';
@@ -380,13 +382,13 @@
 	
 
 	
-	echo '<div style="width: 75%">
+	echo '<div style="width: 50%; float:right;">
 		<canvas id="myChart2"></canvas>
 	</div>';
 
 	echo '<script>
 		Chart.defaults.global.title.display = true;
-		Chart.defaults.global.title.text = "Evolution des émissions en CO2 en "+<?php echo $region; ?>;
+		Chart.defaults.global.title.text = "Evolution des émissions en CO2 en '.$nomRegion.'";
 		Chart.defaults.global.title.fontSize = 18;
 		
 	</script>';
