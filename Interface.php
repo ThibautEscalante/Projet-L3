@@ -214,7 +214,7 @@
 						'rgb(60, 100, 255)',
 						'rgb(0, 255, 0)',
 					],
-					label: 'La production en Occitanie'
+					label: 'La production'
 				}],
 				labels: [
 					'nucléaire',
@@ -232,6 +232,12 @@
 				display: true,
 				position: 'right'
 			},
+			animation:{
+				segmentShowStroke : false,
+    			animateScale : true
+    		},
+    		
+    	
 		}
 	});
 	</script>";
@@ -464,7 +470,7 @@
 				{
 				  scaleLabel: {
 					display: true,
-					labelString: 'Valeur'
+					labelString: 'Valeur en tonnes d équilavents CO2 par GWh'
 				  }
 				}
 			  ]
