@@ -39,7 +39,6 @@
 							
 			</div>
 			
-			<h1> Emissions de gaz à effet de serres pour la production d'électricité en France	 </h1>
 			
 			<?php 
 			
@@ -49,15 +48,15 @@
 			}
 			
 			if ( isset($_GET['region']) == False ){
-				echo "<div id='maCarte'><script src='cmap/france-map.js'></script><script>francefree();</script></div>";
+				echo "<div id='maCarte'><h3>Cliquez sur une région.</h3><script src='cmap/france-map.js'></script><script>francefree();</script></div>";
 			} else {
 				$region = $_GET['region'];
-				echo "<div id='maCarte'><script src='cmap/france-map.js'></script><script>francefree();</script></div>";
-				echo '<form action="Interface.php"></br>
-						Sélectionnez un laps de temps : <input type="month" name="date1" id="date" min="2014-01" max="2019-12"> 
+				echo "<div id='maCarte'><h3>Cliquez sur une région.</h3><script src='cmap/france-map.js'></script><script>francefree();</script>";
+				echo '<form action="Interface.php" id="calend"></br>
+						Sélectionnez un laps de temps : </br><input type="month" name="date1" id="date" min="2014-01" max="2019-12"> 
 						à <input type="month" name="date2" id="date" min="2014-01" max="2019-12">
 						<input type="hidden" name=region value="'.$region.'" /> 
-						<input type="submit" value="envoyer" ></form>';
+						<input type="submit" value="Envoyer" ></form></div>';
 						
 				if ( isset($_GET['date1']) == True){
 					$date1 = $_GET['date1'];
@@ -174,13 +173,13 @@
 	}
 	
 	
-	echo '<div id="graphes"><div style="width: 50%; float:right;">
+	echo '<div id="graphes"><div">
 		<canvas id="myChart"></canvas>
 	</div>';
 
 	echo '<script>
 		Chart.defaults.global.title.display = true;
-		Chart.defaults.global.title.text = "La Production en region '. $nomRegion.'";
+		Chart.defaults.global.title.text = "La production en '. $nomRegion.'";
 		Chart.defaults.global.title.fontSize = 18;
 		
 	</script>';
@@ -228,6 +227,7 @@
 			},
 		// Configuration options go here
 		options: {
+			responsive:false,
 			legend: {
 				display: true,
 				position: 'right'
@@ -385,10 +385,15 @@
 		}
         
 	}
+	$i = 0;
+	$DataTot[] = array();
+	while($i < sizeof($DataNuc2)){
+		$DataTot[$i] = $DataBio2[$i] + $DataEol2[$i] + $DataCha2[$i] + $DataGaz2[$i] + $DataSol2[$i] + $DataHyd2[$i] + $DataNuc2[$i];
+		$i++;
+	}
+   $Data_Json_Tot = json_encode($DataTot, JSON_NUMERIC_CHECK);
 	
-
-	
-	echo '<div style="width: 50%; float:right;">
+	echo '<div>
 		<canvas id="myChart2"></canvas>
 	</div>';
 
@@ -452,11 +457,23 @@
 					backgroundColor: 'rgb(0, 255, 0)',
 					borderColor: 'rgb(0, 255, 0)',
 					data: ". $Data_Json_Bio2."
-				}]	
+				}, {
+              label: 'Total',
+              fill: false,
+              backgroundColor: 'rgb(250, 150, 30)',
+              borderColor: 'rgb(250, 150, 30)',
+              data: ". $Data_Json_Tot."
+              }]	
 			},
 		// Configuration options go here
 		options: {
-			responsive: true,
+			responsive: false,
+			legend: {
+            display: true,
+            labels: {
+                boxWidth:20
+                }
+            },
 			scales: {
 			  xAxes: [
 				{
