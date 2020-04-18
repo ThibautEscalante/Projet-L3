@@ -24,9 +24,8 @@
 					<div class="left">
 					
 						<a href="AccF.html" class="liensMenu" > Accueil</a>
-						<a href="AProposDeNous.html" class="liensMenu" > A Propos De Nous</a>
-						<a href="Contact.html" class="liensMenu" > Contact</a>
-						<a href="SeConnecter.php" class="liensMenu" > Se Connecter</a>
+                        <a href="AProposDeNous.html" class="liensMenu" > A Propos De Nous</a>
+                        <a href="Contact.html" class="liensMenu" > Contact</a>
 						
     				</div>
     				
