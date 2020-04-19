@@ -3,8 +3,7 @@
 <head>
 <title>Interface</title>
 <meta content="width=device-width" charset="UTF-8" />
-<link rel="stylesheet" href= "StylePff.css" type="text/css" media="screen" />
-<link href="StyleAll.css" rel="stylesheet">
+<link href="StyleFinal.css" rel="stylesheet">
 <script src="Chart.bundle.js"></script>
 </head>
 
@@ -23,7 +22,7 @@
 					
 					<div class="left">
 					
-						<a href="AccF.html" class="liensMenu" > Accueil</a>
+						<a href="index.html" class="liensMenu" > Accueil</a>
                         <a href="AProposDeNous.html" class="liensMenu" > A Propos De Nous</a>
                         <a href="Contact.html" class="liensMenu" > Contact</a>
 						
@@ -41,7 +40,7 @@
 			
 			<?php 
 			
-			$bdd=mysqli_connect('127.0.0.1', 'root', '', 'energie', '3308');
+			$bdd=mysqli_connect('127.0.0.1', 'root', '', 'newenergie', '3308');
 			if(!$bdd) {
 				die('erreur de connexion : ' . mysqli_connect_error());
 			}
@@ -60,6 +59,10 @@
 				if ( isset($_GET['date1']) == True){
 					$date1 = $_GET['date1'];
 					$date2 = $_GET['date2'];
+					if( $date1 >= $date2){
+                        echo "erreur : la date est incorrecte.";
+                    }
+                    else{
 			
 	
 	$reqRegion = mysqli_query($bdd, "SELECT region.Region FROM region WHERE region.CodeInsee='".$region."'");
@@ -496,6 +499,7 @@
 	</script></div>";
 
 	mysqli_close($bdd);
+		}
 		}
 		}
 ?>
